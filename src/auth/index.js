@@ -121,7 +121,7 @@ export const useAuth0 = ({
         
         // Si el usuario se auntentico se guarda el mail del mismo en la base 
         if(this.isAuthenticated){
-          axios.get("http://localhost:3000/usuarios")
+          axios.get("https://backendtpf.herokuapp.com/usuarios")
             .then(res => {
                 var encontre = false;
                 for(var user in res.data){
@@ -134,7 +134,7 @@ export const useAuth0 = ({
                     "Content-type": "application/json",
                   };
                   var usuario = { email: this.user.email, admin: false }
-                  this.axios.post("http://localhost:3000/usuarios",JSON.stringify(usuario), { headers });
+                  this.axios.post("https://backendtpf.herokuapp.com/usuarios",JSON.stringify(usuario), { headers });
               }              
             })          
         }          

@@ -62,7 +62,7 @@ export default {
     }
   },
   created () {
-    axios.get("https://backendtpf.herokuapp.com").then(response => {
+    axios.get("https://backendtpf.herokuapp.com/usuarios").then(response => {
       this.usuarios = response.data
     }).catch(e => {
       this.errors.push(e)

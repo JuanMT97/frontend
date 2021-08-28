@@ -31,7 +31,7 @@ export const authAdmin = (to, from, next) => {
   const authService = getInstance();
 
   const fn= () => {
-    axios.get("http://localhost:3000/usuarios")
+    axios.get("https://backendtpf.herokuapp.com/usuarios")
       .then(res => {
         if (authService.isAuthenticated) {
           const usuario = authService.user.email;

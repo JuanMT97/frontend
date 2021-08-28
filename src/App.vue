@@ -62,8 +62,7 @@ export default {
     }
   },
   created () {
-    //axios.get("http://192.168.0.60:3000/usuarios").then(response => {
-    axios.get("http://localhost:3000/usuarios").then(response => {
+    axios.get("https://backendtpf.herokuapp.com").then(response => {
       this.usuarios = response.data
     }).catch(e => {
       this.errors.push(e)

@@ -123,7 +123,7 @@ export default {
       encuesta: new Encuesta(),
       encuestas: [],
       usuarios: [],
-      baseUrl: "http://localhost:3000", //url del backend
+      baseUrl: "https://backendtpf.herokuapp.com", //url del backend
       usuario: new Usuario(),
     };
   },

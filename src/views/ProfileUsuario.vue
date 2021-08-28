@@ -85,8 +85,7 @@ export default {
       encuestas: [],
       edit: false,
       encuestaToEdit: "",
-      baseUrl: "http://localhost:3000", //url del backend
-      //baseUrl: "http://192.168.0.60:3000", //url del backend
+      baseUrl: "https://backendtpf.herokuapp.com", //url del backend
     };
   },
   created() {

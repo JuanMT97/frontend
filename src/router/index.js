@@ -5,7 +5,6 @@ import Profile from '../views/Profile.vue'
 import About from '../views/About.vue'
 import { authGuard } from "../auth/authGuard";
 import { authAdmin } from "../auth/authGuard";
-import ProfileUsuario from '../views/ProfileUsuario.vue'
 import ProfileAdmin from '../views/ProfileAdmin.vue'
 import Neonato from '../views/Neonato.vue'
 import TercerTrimestre from '../views/TercerTrimestre.vue'
@@ -28,12 +27,6 @@ const routes = [
     path: "/profile",
     name: "profile",
     component: Profile,
-    beforeEnter: authGuard
-  },
-  {
-    path: "/profileUsuario",
-    name: "profileUsuario",
-    component: ProfileUsuario,
     beforeEnter: authGuard
   },
   {

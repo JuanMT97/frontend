@@ -2,7 +2,6 @@ import Vue from 'vue'
 import VueRouter from 'vue-router'
 import Home from '../views/Home.vue'
 import Profile from '../views/Profile.vue'
-import About from '../views/About.vue'
 import { authGuard } from "../auth/authGuard";
 import { authAdmin } from "../auth/authGuard";
 import ProfileAdmin from '../views/ProfileAdmin.vue'
@@ -17,11 +16,6 @@ const routes = [
     path: '/',
     name: 'Home',
     component: Home
-  },
-  {
-    path: '/about',
-    name: 'About',
-    component: About
   },
   {
     path: "/profile",

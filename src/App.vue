@@ -3,7 +3,6 @@
     <div id="nav">
       <router-link to="/">Inicio </router-link>
       <router-link v-if="$auth.isAuthenticated" to="/profile">| Perfil </router-link>
-      <router-link v-if="$auth.isAuthenticated" to="/profileUsuario">| Encuestas </router-link>
       <router-link v-if="$auth.isAuthenticated" to="/primerYSegundoTrimestre">| Primer y Segundo Trimestre </router-link> 
       <router-link v-if="$auth.isAuthenticated" to="/tercerTrimestre">| Tercer Trimestre </router-link>
       <router-link v-if="$auth.isAuthenticated" to="/neonato">| Neonato </router-link>  

@@ -5,13 +5,6 @@
     </h2>
     <hr/>
     <div class="container">
-      <!-- <div class="row">
-        <div class="col text-left">
-          <button @click="btnAlta" class="btn btn-info" title="Nuevo">
-            <i class="fas fa-plus fa-1x"></i>&nbsp;&nbsp;Agregar encuesta
-          </button>
-        </div>
-      </div> -->
         <div class="row mt-4">
         <div class="col text-left">
         <form>

@@ -1,4 +1,9 @@
-# frontend
+# Frontend desplegado en https://app.netlify.com
+
+## URL
+```
+https://proyectofinalso.netlify.app
+```
 
 ## Project setup
 ```

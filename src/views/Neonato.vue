@@ -99,7 +99,6 @@
                     </div>
                   </div>
                 </div>
-                <!-- <small>Opcion seleccionada: {{encuesta.viaNacimiento}}</small> -->
                 </fieldset>
                 </div>
               </div>

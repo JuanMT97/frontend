@@ -507,10 +507,70 @@ export default {
     },
     async verEncuesta(id) {
       const res = await this.axios.get(
-        `${this.baseUrl}/encuestasNeonato/` + id
-      );
-      this.encuesta = res.data;
-      this.editar = false;
+          `${this.baseUrl}/encuestasNeonato/` + id
+        );
+      // Alerta que se activa al abrir una encuesta de neonato
+      await Swal.fire({
+        title: "Encuesta Neonato",
+        html:
+          '<form> <div class="card"> <h4 class="card-header text-center">Bloque 0. Datos de los encuestadores y participantes</h4> <div class="card-body"> <h5 class="card-title">Datos Encuestadores</h5> <hr /> <div class="form-row"> <div class="form-group col-md-4"> <label for="inputNyAEncuestador1">Nombre y apellido Encuestador 1</label> <input type="text" value="' +
+          res.data.nombreApellidoEncuestador1 +
+          '" class="form-control" readonly> </div> <div class="form-group col-md-4"> <label for="telefonoEncuestador1">Teléfono</label> <input type="number" value="' +
+          res.data.telefonoEncuestador1 +
+          '" class="form-control" readonly> </div> <div class="form-group col-md-4"> <label for="emailEncuestador1">Email</label> <input type="text" value="' +
+          res.data.emailEncuestador1 +
+          '" class="form-control" readonly > </div> </div> <div class="form-row"> <div class="form-group col-md-4"> <label for="inputNyAEncuestador2">Nombre y apellido Encuestador 2</label> <input type="text" value="' +
+          res.data.nombreApellidoEncuestador2 +
+          '" class="form-control" readonly> </div> <div class="form-group col-md-4"> <label for="telefonoEncuestador2">Teléfono</label> <input type="number" value="' +
+          res.data.telefonoEncuestador2 +
+          '" class="form-control" readonly> </div> <div class="form-group col-md-4"> <label for="emailEncuestador2">Email</label> <input type="text" value="' +
+          res.data.emailEncuestador2 +
+          '" class="form-control" readonly > </div> </div> <div class="form-row"> <div class="form-group col-md-6"> <label for="fechaRelevamiento">Fecha del relevamiento</label> <input type="date" value="' +
+          res.data.fechaRelevamiento +
+          '" class="form-control" readonly> </div> <div class="form-group col-md-6"> <label for="lugarRelevamiento">Lugar del relevamiento</label> <input type="text" value="' +
+          res.data.lugarRelevamiento +
+          '" class="form-control" readonly> </div> </div> <h5 class="card-title">Madre y recien nacido</h5> <hr /> <div class="form-row"> <div class="form-group col-md-4"> <label for="inputNyAEmbarazada">Nombre y apellido</label> <input type="text" value="' +
+          res.data.nombreApellido +
+          '" class="form-control" readonly> </div> <div class="form-group col-md-4"> <label for="DNIEmbarazada">DNI</label> <input type="number" value="' +
+          res.data.dni +
+          '" class="form-control" readonly> </div> <div class="form-group col-md-4"> <label for="FechaNacimiento">Fecha de nacimiento</label> <input type="date" value="' +
+          res.data.fechaNacimiento +
+          '" class="form-control" readonly> </div> </div> <div class="form-group"> <label for="domicilio">Domicilio/barrio</label> <input type="text" value="' +
+          res.data.domicilioBarrio +
+          '" class="form-control" readonly> </div> <div class="form-row"> <div class="form-group col-md-4"> <label for="telefonoEmbarazada">Teléfono</label> <input type="number" value="' +
+          res.data.telefono +
+          '" class="form-control" readonly> </div> <div class="form-group col-md-4"> <label for="fechaNacimiento">Fecha de nacimiento</label> <input type="date" value="' +
+          res.data.fechaNacimientoBebe +
+          '" class="form-control" readonly> </div> <div class="form-group col-md-4"> <label for="viaNacimiento">Via de nacimiento</label> <input type="text" value="' +
+          res.data.viaNacimiento +
+          '" class="form-control" readonly> </div> </div> <div class="form-row"> <div class="form-group col-md-6"> <label for="lugarNacimiento">Lugar de nacimiento</label> <input type="text" value="' +
+          res.data.lugarNacimiento +
+          '" class="form-control" readonly> </div> <div class="form-group col-md-6"> <label for="nombreBebe">Nombre niño/a</label> <input type="text" value="' +
+          res.data.nombreBebe +
+          '" class="form-control" readonly> </div> </div> <div class="form-group"> <label for="observacionesBloque0">Observaciones</label> <input type="text" value="' +
+          res.data.observacionesBloque0 +
+          '" class="form-control" readonly> </div> </div> </div> <div class="card"> <h4 class="card-header text-center">Bloque 5. Antropometría neonato</h4> <div class="card-body"> <h6 class="card-title">Ahora vamos a hacer algunas mediciones para conocer el peso, largo y otros datos de la composición corporal del bebé.</h6> <hr /> <div class="form-row"> <div class="form-group col-md-4"> <label for="peso">5.1 Peso (kg)</label> <input type="number" :step="0.1" value="' +
+          res.data.pesoKG +
+          '" class="form-control" readonly> </div> <div class="form-group col-md-4"> <label for="ropa">Ropa</label> <input type="text" value="' +
+          res.data.ropaAlPesar +
+          '" class="form-control" readonly> <small>Especificar la ropa que tiene puesta al momento de tomar el peso.</small> </div> <div class="form-group col-md-4"> <label for="talla">5.2 Longitud (talla) (cm)</label> <input type="number" value="' +
+          res.data.talla +
+          '" class="form-control" readonly> </div> </div> <div class="form-row"> <div class="form-group col-md-6"> <label for="perimetroCefalico">5.3 Perímetro cefálico (cm)</label> <input type="number" value="' +
+          res.data.perimetroCefalico +
+          '" class="form-control" readonly> </div> <div class="form-group col-md-6"> <label for="cincunsferenciaBrazo">5.4 Cincunsferencia del brazo (cm)</label> <input type="number" value="' +
+          res.data.circunsferenciaBrazo +
+          '" class="form-control" readonly> <small> La medida 5.4 tomar del lado derecho del cuerpo. </small> </div> </div> <h5 class="card-title">Datos de la madre</h5> <hr /> <div class="form-row"> <div class="form-group col-md-6"> <label for="inputNyAMadre">Nombre y apellido</label> <input type="text" value="' +
+          res.data.NombreApellidoMadre +
+          '" class="form-control" readonly> </div> <div class="form-group col-md-6"> <label for="DNIMadre">DNI</label> <input type="number" value="' +
+          res.data.dniMadre +
+          '" class="form-control" readonly> </div> </div> <div class="form-group"> <label for="observacionesBloque5">Observaciones</label> <input type="text" value="' +
+          res.data.observacionesBloque5 +
+          '" class="form-control" readonly> </div> </div> </div> </form>',
+        focusConfirm: false,
+        showConfirmButton: true,
+        width: 1300,
+        confirmButtonText: "Cerrar",
+      });
     },
     async editarEncuesta(id) {
       const res = await this.axios.get(

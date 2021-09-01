@@ -591,11 +591,85 @@ export default {
     },
     async verEncuesta(id) {
       const res = await this.axios.get(
-        `${this.baseUrl}/encuestas3Trimestre/` + id
-      );
-      this.encuesta = res.data;
-      this.recordatorios = res.data.recordatorio24Horas;
-      this.editar = false;
+          `${this.baseUrl}/encuestas3Trimestre/` + id
+        );
+      var recordatorios3Trimestre = "";
+      for (var i = 0; i < res.data.recordatorio24Horas.length; i++) {
+        recordatorios3Trimestre +=
+          "<b>Hora del día: </b>" +
+          res.data.recordatorio24Horas[i].horaDia +
+          ", <b>Tipo de alimento: </b>" +
+          res.data.recordatorio24Horas[i].tipoAlimento +
+          ",<b> Cantidad: </b>" +
+          res.data.recordatorio24Horas[i].cantidad +
+          "<br/>";
+      }
+      // Alerta que se activa al abrir una encuesta del tercer trimestre
+      await Swal.fire({
+        title: "Encuesta Tercer Trimestre",
+        html:
+          '<form> <div class="card"> <h4 class="card-header text-center">Bloque 0. Datos de los encuestadores y las embarazadas</h4> <div class="card-body"> <h5 class="card-title">Datos Encuestador</h5> <hr/> <div class="form-row"> <div class="form-group col-md-4"> <label for="inputNyAEncuestador1">Nombre y apellido Encuestador 1</label> <input type="text" value="' +
+          res.data.nombreApellidoEncuestador1 +
+          '" class="form-control" readonly> </div> <div class="form-group col-md-4"> <label for="telefonoEncuestador1">Teléfono</label> <input type="number" value="' +
+          res.data.telefonoEncuestador1 +
+          '" class="form-control" readonly> </div> <div class="form-group col-md-4"> <label for="emailEncuestador1">Email</label> <input type="text" value="' +
+          res.data.emailEncuestador1 +
+          '" class="form-control" readonly > </div> </div> <div class="form-row"> <div class="form-group col-md-4"> <label for="inputNyAEncuestador2">Nombre y apellido Encuestador 2</label> <input type="text" value="' +
+          res.data.nombreApellidoEncuestador2 +
+          '" class="form-control" readonly> </div> <div class="form-group col-md-4"> <label for="telefonoEncuestador2">Teléfono</label> <input type="number" value="' +
+          res.data.telefonoEncuestador2 +
+          '" class="form-control" readonly> </div> <div class="form-group col-md-4"> <label for="emailEncuestador2">Email</label> <input type="text" value="' +
+          res.data.emailEncuestador2 +
+          '" class="form-control" readonly> </div> </div> <div class="form-row"> <div class="form-group col-md-6"> <label for="fechaRelevamiento">Fecha del relevamiento</label> <input type="date" value="' +
+          res.data.fechaRelevamiento +
+          '" class="form-control" readonly> </div> <div class="form-group col-md-6"> <label for="lugarRelevamiento">Lugar del relevamiento</label> <input type="text" value="' +
+          res.data.lugarRelevamiento +
+          '" class="form-control" readonly> </div> </div> <h5 class="card-title">Embarazadas 3er trimestre</h5> <hr/> <div class="form-row"> <div class="form-group col-md-4"> <label for="inputNyAEmbarazada">Nombre y apellido</label> <input type="text" value="' +
+          res.data.nombreApellido +
+          '" class="form-control" readonly> </div> <div class="form-group col-md-4"> <label for="DNIEmbarazada">DNI</label> <input type="number" value="' +
+          res.data.dni +
+          '" class="form-control" readonly> </div> <div class="form-group col-md-4"> <label for="FechaNacimiento">Fecha de nacimiento</label> <input type="date" value="' +
+          res.data.fechaNacimiento +
+          '" class="form-control" readonly> </div> </div> <div class="form-group"> <label for="domicilio">Domicilio/barrio</label> <input type="text" value="' +
+          res.data.domicilioBarrio +
+          '" class="form-control" readonly> </div> <div class="form-row"> <div class="form-group col-md-4"> <label for="telefonoEmbarazada">Teléfono</label> <input type="number" value="' +
+          res.data.telefono +
+          '" class="form-control" readonly> </div> <div class="form-group col-md-4"> <label for="ultimaMenstruacion">Fecha de última menstruación</label> <input type="date" value="' +
+          res.data.fechaUltimaMenstruacion +
+          '" class="form-control" readonly> </div> <div class="form-group col-md-4"> <label for="SemanasGestación">Semanas de gestación</label> <input type="number" value="' +
+          res.data.semanasGestacion +
+          '" class="form-control" readonly> </div> </div> <div class="form-group"> <label for="observacionesBloque0">Observaciones</label> <input type="text" value="' +
+          res.data.observacionesBloque0 +
+          '" class="form-control" readonly> </div> </div> </div> <div class="card"> <h4 class="card-header text-center">Bloque 3. Antropometría embarazada</h4> <div class="card-body"> <h6 class="card-title">Ahora vamos a hacer algunas mediciones para conocer su peso, su altura y otros datos de su composición corporal.</h6> <hr/> <div class="form-row"> <div class="form-group col-md-4"> <label for="peso">3.1 Peso (kg)</label> <input type="number" :step="0.1" value="' +
+          res.data.pesoKG +
+          '" class="form-control" readonly> </div> <div class="form-group col-md-4"> <label for="ropa">Ropa</label> <input type="text" value="' +
+          res.data.ropaAlPesar +
+          '" class="form-control" readonly> <small>Especificar la ropa que tiene puesta al momento de tomar el peso.</small> </div> <div class="form-group col-md-4"> <label for="talla">3.2 Talla (cm)</label> <input type="number" value="' +
+          res.data.talla +
+          '" class="form-control" readonly> </div> </div> <div class="form-row"> <div class="form-group col-md-6"> <label for="tallaSentada">3.3 Talla sentada (cm)</label> <input type="number" value="' +
+          res.data.tallaSentada +
+          '" class="form-control" readonly> </div> <div class="form-group col-md-6"> <label for="perimetroBraquial">3.4 Perímetro braquial (cm)</label> <input type="number" value="' +
+          res.data.perimetroBraquial +
+          '" class="form-control" readonly> <small> Las mediciones entre 3.4 y 3.8 tomarlas del lado derecho del cuerpo. </small> </div> </div> <div class="form-row"> <div class="form-group col-md-6"> <label for="pliegueTricipital">3.5 Pliegue tricipital (cm)</label> <input type="number" value="' +
+          res.data.pliegueTricipital +
+          '" class="form-control" readonly> </div> <div class="form-group col-md-6"> <label for="pliegueBicipital">3.6 Pliegue bicipital (cm)</label> <input type="number" value="' +
+          res.data.pliegueBicipital +
+          '" class="form-control" readonly> </div> </div> <div class="form-row"> <div class="form-group col-md-6"> <label for="pliegueSubescapular">3.7 Pliegue subescapular (cm)</label> <input type="number" value="' +
+          res.data.pliegueSubescapular +
+          '" class="form-control" readonly> </div> <div class="form-group col-md-6"> <label for="pliegueSuprailíaco">3.8 Pliegue suprailíaco (cm)</label> <input type="number" value="' +
+          res.data.pliegueSuprailiaco +
+          '" class="form-control" readonly> </div> </div> <div class="form-group"> <label for="observacionesBloque3">Observaciones</label> <input type="text" value="' +
+          res.data.observacionesBloque3 +
+          '" class="form-control" readonly> </div> </div> </div> <div class="card"> <h4 class="card-header text-center">Bloque 4. Inseguridad alimentaria y datos nutricionales (continuación)</h4> <div class="card-body"> <h5 class="card-title">4.9 Recordatorio 24 horas</h5> <hr/> <p>Ahora necesito que me cuente qué comió durante todo el día de ayer, desde la mañana hasta la noche.</p> <div class="card"> <div class="card-body"> ' +
+          recordatorios3Trimestre +
+          ' </div> </div> <div class="form-group"> <label for="observacionesBloque4">Observaciones</label> <input type="text" value="' +
+          res.data.observacionesBloque4 +
+          '" class="form-control" readonly> </div> </div> </div> </form>',
+        focusConfirm: false,
+        showConfirmButton: true,
+        width: 1300,
+        confirmButtonText: "Cerrar",
+      });
     },
     async editarEncuesta(id) {
       const res = await this.axios.get(

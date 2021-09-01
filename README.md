@@ -20,7 +20,7 @@ npm run serve
 npm run build
 ```
 
-## Acceso
+## Acceso administrador
 
 #### Email
 
@@ -31,5 +31,5 @@ admin@gmail.com
 #### Contraseña
 
 ```
-Proyecto123
+Proyecto123.
 ```

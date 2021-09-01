@@ -7,13 +7,13 @@ import moment from 'moment'
 
 Vue.use(VueAxios, axios);
 
-// Import the Auth0 configuration
+// Importa la configuracion de Auth0
 import { domain, clientId } from "../auth_config.json";
 
-// Import the plugin here
+// Importa el plugin de Auth0
 import { Auth0Plugin } from "./auth";
 
-// Install the authentication plugin here
+// Instala el plugin de autenticacion
 Vue.use(Auth0Plugin, {
   domain,
   clientId,

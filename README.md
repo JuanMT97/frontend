@@ -5,25 +5,17 @@
 https://proyectofinalso.netlify.app
 ```
 
-## Project setup
+## Ejecucion del proyecto
 ```
 npm install
 ```
 
-### Compiles and hot-reloads for development
+#### Compilacion para desarrollo
 ```
 npm run serve
 ```
 
-### Compiles and minifies for production
+#### Compilacion para produccion
 ```
 npm run build
 ```
-
-### Lints and fixes files
-```
-npm run lint
-```
-
-### Customize configuration
-See [Configuration Reference](https://cli.vuejs.org/config/).

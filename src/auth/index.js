@@ -119,7 +119,7 @@ export const useAuth0 = ({
         this.isAuthenticated = await this.auth0Client.isAuthenticated();
         this.user = await this.auth0Client.getUser();
         
-        // Si el usuario se auntentico se guarda el mail del mismo en la base 
+        // La primera vez que un usuario ingresa al sistema, se guarda el mail del mismo en la base 
         if(this.isAuthenticated){
           axios.get("https://backendtpf.herokuapp.com/usuarios")
             .then(res => {

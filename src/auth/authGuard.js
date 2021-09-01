@@ -30,6 +30,8 @@ export const authGuard = (to, from, next) => {
 export const authAdmin = (to, from, next) => {
   const authService = getInstance();
 
+  // Si el usuario está autenticado y tiene permisos de admistrador, continúa hacia la ruta de administración
+  // De lo contrario, vuelve a la página de inicio
   const fn= () => {
     axios.get("https://backendtpf.herokuapp.com/usuarios")
       .then(res => {

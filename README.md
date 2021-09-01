@@ -19,3 +19,17 @@ npm run serve
 ```
 npm run build
 ```
+
+## Acceso
+
+#### Email
+
+```
+admin@gmail.com
+```
+
+#### Contraseña
+
+```
+Proyecto123
+```

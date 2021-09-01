@@ -55,24 +55,29 @@
           </div>
           <div class="card">
             <h4 class="card-header text-center">Encuestas</h4>
-            <div class="card-body">
-              <div class="input-group">
-                <div class="form-outline w-50">
-                  <input
-                    id="search-input"
-                    type="search"
-                    class="form-control"
-                    placeholder="Buscar por encuestador"
-                  />
-                </div>
-                <button
-                  @click="getEncuestasEncuestador()"
-                  id="search-button"
-                  type="button"
-                  class="btn btn-primary"
-                >
-                  <i class="fas fa-search"></i>
-                </button>
+            <div class="card-body">              
+                    <div class="input-group">
+                      <div class="form-outline w-50">
+                        <input
+                          id="search-input"
+                          type="search"
+                          class="form-control"
+                          placeholder="Buscar por encuestador"
+                        />
+                      </div>
+                    <button
+                      @click="getEncuestasEncuestador()"
+                      id="search-button"
+                      type="button"
+                      class="btn btn-primary"
+                    >
+                      <i class="fas fa-search"></i>
+                    </button>
+                  <div class="col text-right">
+                    <button @click="downloadEncuestas()" class="btn btn-success" title="Exportar encuestas a CSV">
+                      <i class="fas fa-file-excel"></i> 
+                    </button>        
+                  </div>
               </div>
               <p></p>
               <table class="table table-striped text-center">
@@ -102,10 +107,6 @@
                   </tr>
                 </tbody>
               </table>
-              <button @click="downloadEncuestas()" class="btn btn-success">
-                <i class="fas fa-file-excel"></i>
-                Exportar encuestas a CSV
-              </button>
             </div>
           </div>
         </div>

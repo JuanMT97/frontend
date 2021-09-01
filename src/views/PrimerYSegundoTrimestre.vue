@@ -2854,7 +2854,6 @@
                   </tr>
                 </thead>
                 <tbody>
-                  <!-- Acá irian las encuestas que realizó encuestador logueado -->
                   <tr v-for="encuesta in encuestas" :key="encuesta._id">
                     <td>{{ encuesta.nombreApellido }}</td>
                     <td>{{ encuesta.dni }}</td>
